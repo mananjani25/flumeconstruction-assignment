@@ -1,0 +1,75 @@
+// LiteSourcing data model
+// Suppliers sell Products. Projects contain SpecItems, each of which can have
+// multiple SourcingOptions pointing at a supplier's Product; one is the winner.
+
+generator client {
+  provider = "prisma-client"
+  output   = "../src/generated/prisma"
+}
+
+datasource db {
+  provider = "sqlite"
+}
+
+model Supplier {
+  id        String    @id @default(cuid())
+  name      String
+  country   String
+  website   String?
+  products  Product[]
+  createdAt DateTime  @default(now())
+}
+
+model Product {
+  id              String           @id @default(cuid())
+  supplier        Supplier         @relation(fields: [supplierId], references: [id], onDelete: Cascade)
+  supplierId      String
+  name            String
+  category        String
+  unitPrice       Float
+  currency        String
+  unitOfMeasure   String
+  leadTimeDays    Int
+  sourcingOptions SourcingOption[]
+  createdAt       DateTime         @default(now())
+
+  @@index([category])
+  @@index([name])
+}
+
+model Project {
+  id        String     @id @default(cuid())
+  name      String
+  buyerName String
+  status    String     @default("Draft") // Draft | Sourcing | Quoted | Closed
+  specItems SpecItem[]
+  createdAt DateTime   @default(now())
+}
+
+model SpecItem {
+  id            String           @id @default(cuid())
+  project       Project          @relation(fields: [projectId], references: [id], onDelete: Cascade)
+  projectId     String
+  name          String
+  description   String?
+  category      String
+  quantity      Float
+  unitOfMeasure String
+  options       SourcingOption[]
+  createdAt     DateTime         @default(now())
+}
+
+model SourcingOption {
+  id           String   @id @default(cuid())
+  specItem     SpecItem @relation(fields: [specItemId], references: [id], onDelete: Cascade)
+  specItemId   String
+  product      Product  @relation(fields: [productId], references: [id], onDelete: Cascade)
+  productId    String
+  quotedPrice  Float    // price per unit at quote time
+  totalCost    Float    // quotedPrice * spec item quantity
+  leadTimeDays Int
+  isSelected   Boolean  @default(false)
+  createdAt    DateTime @default(now())
+
+  @@index([specItemId])
+}

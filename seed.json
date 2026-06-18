@@ -1,0 +1,624 @@
+[
+  {
+    "name": "ElectroPro Supply Co.",
+    "country": "US",
+    "website": "https://electropro-supply.example.com",
+    "products": [
+      {
+        "product_name": "4mm Copper Cable",
+        "category": "Electrical",
+        "unit_price": 2.50,
+        "currency": "USD",
+        "unit_of_measure": "meter",
+        "lead_time_days": 14
+      },
+      {
+        "product_name": "10mm Copper Cable",
+        "category": "Electrical",
+        "unit_price": 5.75,
+        "currency": "USD",
+        "unit_of_measure": "meter",
+        "lead_time_days": 14
+      },
+      {
+        "product_name": "LED Panel Light 60x60cm 40W",
+        "category": "Electrical",
+        "unit_price": 34.00,
+        "currency": "USD",
+        "unit_of_measure": "piece",
+        "lead_time_days": 21
+      },
+      {
+        "product_name": "Industrial Circuit Breaker 63A",
+        "category": "Electrical",
+        "unit_price": 48.50,
+        "currency": "USD",
+        "unit_of_measure": "piece",
+        "lead_time_days": 10
+      },
+      {
+        "product_name": "PVC Conduit 25mm",
+        "category": "Electrical",
+        "unit_price": 1.20,
+        "currency": "USD",
+        "unit_of_measure": "meter",
+        "lead_time_days": 7
+      },
+      {
+        "product_name": "Distribution Board 12-Way",
+        "category": "Electrical",
+        "unit_price": 125.00,
+        "currency": "USD",
+        "unit_of_measure": "piece",
+        "lead_time_days": 18
+      },
+      {
+        "product_name": "Cable Tray 300mm Galvanized",
+        "category": "Electrical",
+        "unit_price": 15.80,
+        "currency": "USD",
+        "unit_of_measure": "meter",
+        "lead_time_days": 12
+      },
+      {
+        "product_name": "Emergency Exit Light LED",
+        "category": "Electrical",
+        "unit_price": 42.00,
+        "currency": "USD",
+        "unit_of_measure": "piece",
+        "lead_time_days": 14
+      }
+    ]
+  },
+  {
+    "name": "AquaFlow Plumbing Wholesale",
+    "country": "US",
+    "website": "https://aquaflow-wholesale.example.com",
+    "products": [
+      {
+        "product_name": "PPR Pipe 20mm",
+        "category": "Plumbing",
+        "unit_price": 1.80,
+        "currency": "USD",
+        "unit_of_measure": "meter",
+        "lead_time_days": 7
+      },
+      {
+        "product_name": "PPR Pipe 32mm",
+        "category": "Plumbing",
+        "unit_price": 3.20,
+        "currency": "USD",
+        "unit_of_measure": "meter",
+        "lead_time_days": 7
+      },
+      {
+        "product_name": "Ball Valve Brass 1 inch",
+        "category": "Plumbing",
+        "unit_price": 12.50,
+        "currency": "USD",
+        "unit_of_measure": "piece",
+        "lead_time_days": 5
+      },
+      {
+        "product_name": "Stainless Steel Water Tank 1000L",
+        "category": "Plumbing",
+        "unit_price": 450.00,
+        "currency": "USD",
+        "unit_of_measure": "piece",
+        "lead_time_days": 30
+      },
+      {
+        "product_name": "PVC Drainage Pipe 110mm",
+        "category": "Plumbing",
+        "unit_price": 4.50,
+        "currency": "USD",
+        "unit_of_measure": "meter",
+        "lead_time_days": 7
+      },
+      {
+        "product_name": "Submersible Water Pump 1.5HP",
+        "category": "Plumbing",
+        "unit_price": 285.00,
+        "currency": "USD",
+        "unit_of_measure": "piece",
+        "lead_time_days": 21
+      },
+      {
+        "product_name": "Check Valve Brass 2 inch",
+        "category": "Plumbing",
+        "unit_price": 28.00,
+        "currency": "USD",
+        "unit_of_measure": "piece",
+        "lead_time_days": 10
+      },
+      {
+        "product_name": "Floor Drain Stainless Steel 150mm",
+        "category": "Plumbing",
+        "unit_price": 18.00,
+        "currency": "USD",
+        "unit_of_measure": "piece",
+        "lead_time_days": 5
+      }
+    ]
+  },
+  {
+    "name": "CoolAir HVAC Systems",
+    "country": "DE",
+    "website": "https://coolair-hvac.example.com",
+    "products": [
+      {
+        "product_name": "Split AC Unit 24000 BTU",
+        "category": "HVAC",
+        "unit_price": 890.00,
+        "currency": "USD",
+        "unit_of_measure": "piece",
+        "lead_time_days": 35
+      },
+      {
+        "product_name": "Ducted Fan Coil Unit 4-Pipe",
+        "category": "HVAC",
+        "unit_price": 1250.00,
+        "currency": "USD",
+        "unit_of_measure": "piece",
+        "lead_time_days": 42
+      },
+      {
+        "product_name": "Galvanized Duct 400x200mm",
+        "category": "HVAC",
+        "unit_price": 22.00,
+        "currency": "USD",
+        "unit_of_measure": "meter",
+        "lead_time_days": 21
+      },
+      {
+        "product_name": "Copper Refrigerant Pipe 3/8 inch",
+        "category": "HVAC",
+        "unit_price": 8.50,
+        "currency": "USD",
+        "unit_of_measure": "meter",
+        "lead_time_days": 14
+      },
+      {
+        "product_name": "Air Handling Unit 5000 CFM",
+        "category": "HVAC",
+        "unit_price": 4800.00,
+        "currency": "USD",
+        "unit_of_measure": "piece",
+        "lead_time_days": 56
+      },
+      {
+        "product_name": "Thermostat Digital Programmable",
+        "category": "HVAC",
+        "unit_price": 65.00,
+        "currency": "USD",
+        "unit_of_measure": "piece",
+        "lead_time_days": 10
+      },
+      {
+        "product_name": "Insulated Flexible Duct 250mm",
+        "category": "HVAC",
+        "unit_price": 12.00,
+        "currency": "USD",
+        "unit_of_measure": "meter",
+        "lead_time_days": 14
+      }
+    ]
+  },
+  {
+    "name": "SteelCore Industries",
+    "country": "CN",
+    "website": "https://steelcore-ind.example.com",
+    "products": [
+      {
+        "product_name": "H-Beam 200x200mm",
+        "category": "Structural Steel",
+        "unit_price": 950.00,
+        "currency": "USD",
+        "unit_of_measure": "ton",
+        "lead_time_days": 45
+      },
+      {
+        "product_name": "Steel Rebar 12mm Grade 60",
+        "category": "Structural Steel",
+        "unit_price": 680.00,
+        "currency": "USD",
+        "unit_of_measure": "ton",
+        "lead_time_days": 30
+      },
+      {
+        "product_name": "Steel Plate 10mm Hot Rolled",
+        "category": "Structural Steel",
+        "unit_price": 820.00,
+        "currency": "USD",
+        "unit_of_measure": "ton",
+        "lead_time_days": 35
+      },
+      {
+        "product_name": "Angle Iron 50x50x5mm",
+        "category": "Structural Steel",
+        "unit_price": 750.00,
+        "currency": "USD",
+        "unit_of_measure": "ton",
+        "lead_time_days": 28
+      },
+      {
+        "product_name": "Square Hollow Section 100x100mm",
+        "category": "Structural Steel",
+        "unit_price": 1050.00,
+        "currency": "USD",
+        "unit_of_measure": "ton",
+        "lead_time_days": 35
+      },
+      {
+        "product_name": "Wire Mesh 4mm 200x200mm Grid",
+        "category": "Structural Steel",
+        "unit_price": 3.80,
+        "currency": "USD",
+        "unit_of_measure": "sqm",
+        "lead_time_days": 21
+      },
+      {
+        "product_name": "Anchor Bolt M16x300mm",
+        "category": "Structural Steel",
+        "unit_price": 4.20,
+        "currency": "USD",
+        "unit_of_measure": "piece",
+        "lead_time_days": 14
+      }
+    ]
+  },
+  {
+    "name": "FinishLine Building Materials",
+    "country": "IT",
+    "website": "https://finishline-bm.example.com",
+    "products": [
+      {
+        "product_name": "Porcelain Floor Tile 60x60cm",
+        "category": "Finishing",
+        "unit_price": 18.50,
+        "currency": "USD",
+        "unit_of_measure": "sqm",
+        "lead_time_days": 28
+      },
+      {
+        "product_name": "Ceramic Wall Tile 30x60cm",
+        "category": "Finishing",
+        "unit_price": 14.00,
+        "currency": "USD",
+        "unit_of_measure": "sqm",
+        "lead_time_days": 28
+      },
+      {
+        "product_name": "Interior Wall Paint White 20L",
+        "category": "Finishing",
+        "unit_price": 65.00,
+        "currency": "USD",
+        "unit_of_measure": "bucket",
+        "lead_time_days": 10
+      },
+      {
+        "product_name": "Gypsum Board 12.5mm 1200x2400",
+        "category": "Finishing",
+        "unit_price": 8.50,
+        "currency": "USD",
+        "unit_of_measure": "piece",
+        "lead_time_days": 7
+      },
+      {
+        "product_name": "Suspended Ceiling Tile 600x600mm",
+        "category": "Finishing",
+        "unit_price": 5.20,
+        "currency": "USD",
+        "unit_of_measure": "piece",
+        "lead_time_days": 14
+      },
+      {
+        "product_name": "Laminate Flooring Oak 8mm",
+        "category": "Finishing",
+        "unit_price": 22.00,
+        "currency": "USD",
+        "unit_of_measure": "sqm",
+        "lead_time_days": 21
+      },
+      {
+        "product_name": "Aluminum Door Frame 900x2100mm",
+        "category": "Finishing",
+        "unit_price": 145.00,
+        "currency": "USD",
+        "unit_of_measure": "piece",
+        "lead_time_days": 25
+      },
+      {
+        "product_name": "Epoxy Floor Coating 2-Part 20L",
+        "category": "Finishing",
+        "unit_price": 120.00,
+        "currency": "USD",
+        "unit_of_measure": "bucket",
+        "lead_time_days": 14
+      }
+    ]
+  },
+  {
+    "name": "SafeGuard Equipment LLC",
+    "country": "US",
+    "website": "https://safeguard-equip.example.com",
+    "products": [
+      {
+        "product_name": "Fire Extinguisher ABC 6kg",
+        "category": "Safety",
+        "unit_price": 45.00,
+        "currency": "USD",
+        "unit_of_measure": "piece",
+        "lead_time_days": 7
+      },
+      {
+        "product_name": "Safety Harness Full Body",
+        "category": "Safety",
+        "unit_price": 85.00,
+        "currency": "USD",
+        "unit_of_measure": "piece",
+        "lead_time_days": 10
+      },
+      {
+        "product_name": "Hard Hat ANSI Type II",
+        "category": "Safety",
+        "unit_price": 22.00,
+        "currency": "USD",
+        "unit_of_measure": "piece",
+        "lead_time_days": 5
+      },
+      {
+        "product_name": "Fire Alarm Pull Station",
+        "category": "Safety",
+        "unit_price": 38.00,
+        "currency": "USD",
+        "unit_of_measure": "piece",
+        "lead_time_days": 14
+      },
+      {
+        "product_name": "Smoke Detector Photoelectric",
+        "category": "Safety",
+        "unit_price": 28.00,
+        "currency": "USD",
+        "unit_of_measure": "piece",
+        "lead_time_days": 10
+      },
+      {
+        "product_name": "Emergency Shower & Eyewash Station",
+        "category": "Safety",
+        "unit_price": 320.00,
+        "currency": "USD",
+        "unit_of_measure": "piece",
+        "lead_time_days": 21
+      }
+    ]
+  },
+  {
+    "name": "Dragon Steel Trading",
+    "country": "CN",
+    "website": "https://dragon-steel.example.com",
+    "products": [
+      {
+        "product_name": "H-Beam 200x200mm",
+        "category": "Structural Steel",
+        "unit_price": 880.00,
+        "currency": "USD",
+        "unit_of_measure": "ton",
+        "lead_time_days": 50
+      },
+      {
+        "product_name": "Steel Rebar 12mm Grade 60",
+        "category": "Structural Steel",
+        "unit_price": 620.00,
+        "currency": "USD",
+        "unit_of_measure": "ton",
+        "lead_time_days": 40
+      },
+      {
+        "product_name": "Steel Plate 10mm Hot Rolled",
+        "category": "Structural Steel",
+        "unit_price": 760.00,
+        "currency": "USD",
+        "unit_of_measure": "ton",
+        "lead_time_days": 42
+      },
+      {
+        "product_name": "C-Channel 150x75mm",
+        "category": "Structural Steel",
+        "unit_price": 790.00,
+        "currency": "USD",
+        "unit_of_measure": "ton",
+        "lead_time_days": 35
+      },
+      {
+        "product_name": "Galvanized Steel Coil 0.5mm",
+        "category": "Structural Steel",
+        "unit_price": 920.00,
+        "currency": "USD",
+        "unit_of_measure": "ton",
+        "lead_time_days": 30
+      },
+      {
+        "product_name": "Wire Mesh 4mm 200x200mm Grid",
+        "category": "Structural Steel",
+        "unit_price": 3.20,
+        "currency": "USD",
+        "unit_of_measure": "sqm",
+        "lead_time_days": 25
+      }
+    ]
+  },
+  {
+    "name": "BrightWire Electrical",
+    "country": "TR",
+    "website": "https://brightwire-elec.example.com",
+    "products": [
+      {
+        "product_name": "4mm Copper Cable",
+        "category": "Electrical",
+        "unit_price": 2.10,
+        "currency": "USD",
+        "unit_of_measure": "meter",
+        "lead_time_days": 21
+      },
+      {
+        "product_name": "10mm Copper Cable",
+        "category": "Electrical",
+        "unit_price": 5.20,
+        "currency": "USD",
+        "unit_of_measure": "meter",
+        "lead_time_days": 21
+      },
+      {
+        "product_name": "LED Panel Light 60x60cm 40W",
+        "category": "Electrical",
+        "unit_price": 28.00,
+        "currency": "USD",
+        "unit_of_measure": "piece",
+        "lead_time_days": 30
+      },
+      {
+        "product_name": "Distribution Board 12-Way",
+        "category": "Electrical",
+        "unit_price": 105.00,
+        "currency": "USD",
+        "unit_of_measure": "piece",
+        "lead_time_days": 25
+      },
+      {
+        "product_name": "Cable Tray 300mm Galvanized",
+        "category": "Electrical",
+        "unit_price": 13.50,
+        "currency": "USD",
+        "unit_of_measure": "meter",
+        "lead_time_days": 18
+      },
+      {
+        "product_name": "Outdoor Weatherproof Socket IP65",
+        "category": "Electrical",
+        "unit_price": 16.00,
+        "currency": "USD",
+        "unit_of_measure": "piece",
+        "lead_time_days": 14
+      }
+    ]
+  },
+  {
+    "name": "ArcticBreeze Climate Solutions",
+    "country": "DE",
+    "website": "https://arcticbreeze-cs.example.com",
+    "products": [
+      {
+        "product_name": "Split AC Unit 24000 BTU",
+        "category": "HVAC",
+        "unit_price": 820.00,
+        "currency": "USD",
+        "unit_of_measure": "piece",
+        "lead_time_days": 42
+      },
+      {
+        "product_name": "Ducted Fan Coil Unit 4-Pipe",
+        "category": "HVAC",
+        "unit_price": 1100.00,
+        "currency": "USD",
+        "unit_of_measure": "piece",
+        "lead_time_days": 49
+      },
+      {
+        "product_name": "Chiller Air-Cooled 50 Ton",
+        "category": "HVAC",
+        "unit_price": 18500.00,
+        "currency": "USD",
+        "unit_of_measure": "piece",
+        "lead_time_days": 70
+      },
+      {
+        "product_name": "Galvanized Duct 400x200mm",
+        "category": "HVAC",
+        "unit_price": 19.50,
+        "currency": "USD",
+        "unit_of_measure": "meter",
+        "lead_time_days": 25
+      },
+      {
+        "product_name": "Thermostat Digital Programmable",
+        "category": "HVAC",
+        "unit_price": 58.00,
+        "currency": "USD",
+        "unit_of_measure": "piece",
+        "lead_time_days": 14
+      },
+      {
+        "product_name": "VRF Outdoor Unit 14HP",
+        "category": "HVAC",
+        "unit_price": 7200.00,
+        "currency": "USD",
+        "unit_of_measure": "piece",
+        "lead_time_days": 60
+      },
+      {
+        "product_name": "Insulated Flexible Duct 250mm",
+        "category": "HVAC",
+        "unit_price": 10.50,
+        "currency": "USD",
+        "unit_of_measure": "meter",
+        "lead_time_days": 18
+      }
+    ]
+  },
+  {
+    "name": "MediterraneanTile & Stone",
+    "country": "ES",
+    "website": "https://medtile-stone.example.com",
+    "products": [
+      {
+        "product_name": "Porcelain Floor Tile 60x60cm",
+        "category": "Finishing",
+        "unit_price": 21.00,
+        "currency": "USD",
+        "unit_of_measure": "sqm",
+        "lead_time_days": 35
+      },
+      {
+        "product_name": "Ceramic Wall Tile 30x60cm",
+        "category": "Finishing",
+        "unit_price": 16.50,
+        "currency": "USD",
+        "unit_of_measure": "sqm",
+        "lead_time_days": 35
+      },
+      {
+        "product_name": "Natural Marble Tile 60x60cm",
+        "category": "Finishing",
+        "unit_price": 55.00,
+        "currency": "USD",
+        "unit_of_measure": "sqm",
+        "lead_time_days": 45
+      },
+      {
+        "product_name": "Mosaic Tile Glass 30x30cm Sheet",
+        "category": "Finishing",
+        "unit_price": 32.00,
+        "currency": "USD",
+        "unit_of_measure": "sqm",
+        "lead_time_days": 30
+      },
+      {
+        "product_name": "Granite Countertop Slab 20mm",
+        "category": "Finishing",
+        "unit_price": 80.00,
+        "currency": "USD",
+        "unit_of_measure": "sqm",
+        "lead_time_days": 40
+      },
+      {
+        "product_name": "Exterior Cladding Stone Panel",
+        "category": "Finishing",
+        "unit_price": 45.00,
+        "currency": "USD",
+        "unit_of_measure": "sqm",
+        "lead_time_days": 35
+      }
+    ]
+  }
+]
