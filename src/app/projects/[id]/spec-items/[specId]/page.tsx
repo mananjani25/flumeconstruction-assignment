@@ -5,6 +5,7 @@ import { useParams } from "next/navigation";
 import { useState } from "react";
 import { useQuery, useMutation, useQueryClient } from "@tanstack/react-query";
 import { apiDelete, apiGet, apiPost } from "@/lib/client";
+import { invalidateProjectData } from "@/lib/invalidate";
 import { useDebounce } from "@/lib/useDebounce";
 import type { ProductWithSupplier, SpecItemDetail } from "@/lib/types";
 import { formatLeadTime, formatMoney } from "@/lib/format";
@@ -53,8 +54,7 @@ export default function SourcingPage() {
 
 function OptionsCompare({ spec }: { spec: SpecItemDetail }) {
   const qc = useQueryClient();
-  const invalidate = () =>
-    qc.invalidateQueries({ queryKey: ["specItem", spec.id] });
+  const invalidate = () => invalidateProjectData(qc, spec.projectId, spec.id);
 
   const select = useMutation({
     mutationFn: (optionId: string) =>
@@ -197,7 +197,7 @@ function ProductSearch({ spec }: { spec: SpecItemDetail }) {
     mutationFn: (productId: string) =>
       apiPost(`/api/spec-items/${spec.id}/options`, { productId }),
     meta: { successMessage: "Sourcing option attached" },
-    onSuccess: () => qc.invalidateQueries({ queryKey: ["specItem", spec.id] }),
+    onSuccess: () => invalidateProjectData(qc, spec.projectId, spec.id),
   });
 
   return (

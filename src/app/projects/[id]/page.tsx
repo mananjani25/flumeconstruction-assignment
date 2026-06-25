@@ -6,6 +6,7 @@ import { useState } from "react";
 import { useQuery, useMutation, useQueryClient } from "@tanstack/react-query";
 import { toast } from "sonner";
 import { apiDelete, apiGet, apiPatch, apiPost } from "@/lib/client";
+import { invalidateProjectData } from "@/lib/invalidate";
 import type { ProjectDetail, SpecItem } from "@/lib/types";
 import {
   formatLeadTime,
@@ -104,7 +105,7 @@ function StatusControls({ project }: { project: ProjectDetail }) {
       apiPatch(`/api/projects/${project.id}`, { status }),
     onSuccess: (_data, status) => {
       toast.success(`Project moved to ${status}`);
-      qc.invalidateQueries({ queryKey: ["project", project.id] });
+      invalidateProjectData(qc, project.id);
     },
   });
 
@@ -176,7 +177,7 @@ function SpecItemRow({
   const del = useMutation({
     mutationFn: () => apiDelete(`/api/spec-items/${item.id}`),
     meta: { successMessage: "Spec item deleted" },
-    onSuccess: () => qc.invalidateQueries({ queryKey: ["project", projectId] }),
+    onSuccess: () => invalidateProjectData(qc, projectId),
   });
 
   return (
@@ -255,7 +256,7 @@ function AddSpecItemForm({
     mutationFn: () => apiPost(`/api/projects/${projectId}/spec-items`, form),
     meta: { successMessage: "Spec item added" },
     onSuccess: () => {
-      qc.invalidateQueries({ queryKey: ["project", projectId] });
+      invalidateProjectData(qc, projectId);
       setForm(emptySpec);
       onDone();
     },
