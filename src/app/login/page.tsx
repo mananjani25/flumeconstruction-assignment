@@ -37,7 +37,7 @@ function LoginForm() {
       className="space-y-4"
     >
       <label className="block">
-        <Label>Email</Label>
+        <Label required>Email</Label>
         <Input
           type="email"
           required
@@ -49,7 +49,7 @@ function LoginForm() {
         <ErrorText>{fieldErrors?.email}</ErrorText>
       </label>
       <label className="block">
-        <Label>Password</Label>
+        <Label required>Password</Label>
         <Input
           type="password"
           required

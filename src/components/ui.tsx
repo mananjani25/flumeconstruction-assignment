@@ -29,15 +29,22 @@ export function Select({
 export function Label({
   children,
   className = "",
+  required = false,
 }: {
   children: React.ReactNode;
   className?: string;
+  required?: boolean;
 }) {
   return (
     <span
       className={`mb-1 block text-xs font-medium text-black/60 dark:text-white/60 ${className}`}
     >
       {children}
+      {required && (
+        <span className="ml-0.5 text-red-600" aria-hidden="true">
+          *
+        </span>
+      )}
     </span>
   );
 }

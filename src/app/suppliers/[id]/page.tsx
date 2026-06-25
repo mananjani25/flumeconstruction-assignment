@@ -149,11 +149,11 @@ function AddProductForm({
       className="grid gap-3 rounded-xl border border-black/10 p-4 sm:grid-cols-3 dark:border-white/15"
     >
       <label>
-        <Label>Name</Label>
+        <Label required>Name</Label>
         <Input required value={form.name} onChange={set("name")} className="w-full" />
       </label>
       <label>
-        <Label>Category</Label>
+        <Label required>Category</Label>
         <Input
           required
           placeholder="Electrical, Plumbing…"
@@ -163,7 +163,7 @@ function AddProductForm({
         />
       </label>
       <label>
-        <Label>Unit of measure</Label>
+        <Label required>Unit of measure</Label>
         <Input
           required
           placeholder="meter, piece, kg…"
@@ -173,7 +173,7 @@ function AddProductForm({
         />
       </label>
       <label>
-        <Label>Unit price</Label>
+        <Label required>Unit price</Label>
         <Input
           required
           type="number"
@@ -189,7 +189,7 @@ function AddProductForm({
         <Input value={form.currency} onChange={set("currency")} className="w-full" />
       </label>
       <label>
-        <Label>Lead time (days)</Label>
+        <Label required>Lead time (days)</Label>
         <Input
           required
           type="number"

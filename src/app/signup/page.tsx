@@ -45,7 +45,7 @@ export default function SignupPage() {
         className="space-y-4"
       >
         <label className="block">
-          <Label>Name</Label>
+          <Label required>Name</Label>
           <Input
             required
             autoComplete="name"
@@ -56,7 +56,7 @@ export default function SignupPage() {
           <ErrorText>{fieldErrors?.name}</ErrorText>
         </label>
         <label className="block">
-          <Label>Email</Label>
+          <Label required>Email</Label>
           <Input
             type="email"
             required
@@ -68,7 +68,7 @@ export default function SignupPage() {
           <ErrorText>{fieldErrors?.email}</ErrorText>
         </label>
         <label className="block">
-          <Label>Password</Label>
+          <Label required>Password</Label>
           <Input
             type="password"
             required

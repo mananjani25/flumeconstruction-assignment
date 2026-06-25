@@ -278,7 +278,7 @@ function AddSpecItemForm({
       className="grid gap-3 rounded-xl border border-black/10 p-4 sm:grid-cols-2 dark:border-white/15"
     >
       <label>
-        <Label>Name</Label>
+        <Label required>Name</Label>
         <Input
           required
           placeholder="4mm copper cable"
@@ -288,7 +288,7 @@ function AddSpecItemForm({
         />
       </label>
       <label>
-        <Label>Category</Label>
+        <Label required>Category</Label>
         <Input
           required
           placeholder="Electrical"
@@ -298,7 +298,7 @@ function AddSpecItemForm({
         />
       </label>
       <label>
-        <Label>Quantity</Label>
+        <Label required>Quantity</Label>
         <Input
           required
           type="number"
@@ -310,7 +310,7 @@ function AddSpecItemForm({
         />
       </label>
       <label>
-        <Label>Unit of measure</Label>
+        <Label required>Unit of measure</Label>
         <Input
           required
           placeholder="meter, piece…"

@@ -86,7 +86,7 @@ function NewProjectForm({ onDone }: { onDone: () => void }) {
       className="grid gap-3 rounded-xl border border-black/10 p-4 sm:grid-cols-2 dark:border-white/15"
     >
       <label>
-        <Label>Project name</Label>
+        <Label required>Project name</Label>
         <Input
           required
           value={form.name}
@@ -95,7 +95,7 @@ function NewProjectForm({ onDone }: { onDone: () => void }) {
         />
       </label>
       <label>
-        <Label>Buyer / client</Label>
+        <Label required>Buyer / client</Label>
         <Input
           required
           value={form.buyerName}

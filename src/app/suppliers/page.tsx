@@ -101,7 +101,7 @@ function AddSupplierForm({ onDone }: { onDone: () => void }) {
       className="grid gap-3 rounded-xl border border-black/10 p-4 sm:grid-cols-3 dark:border-white/15"
     >
       <label>
-        <Label>Name</Label>
+        <Label required>Name</Label>
         <Input
           required
           value={form.name}
@@ -110,7 +110,7 @@ function AddSupplierForm({ onDone }: { onDone: () => void }) {
         />
       </label>
       <label>
-        <Label>Country</Label>
+        <Label required>Country</Label>
         <Input
           required
           value={form.country}
