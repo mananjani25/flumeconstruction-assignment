@@ -4,6 +4,7 @@ import Link from "next/link";
 import { useState } from "react";
 import { useQuery } from "@tanstack/react-query";
 import { apiGet } from "@/lib/client";
+import { useDebounce } from "@/lib/useDebounce";
 import type { ProductWithSupplier } from "@/lib/types";
 import { formatLeadTime, formatMoney } from "@/lib/format";
 import { EmptyState, Input, Select } from "@/components/ui";
@@ -11,6 +12,8 @@ import { EmptyState, Input, Select } from "@/components/ui";
 export default function ProductsPage() {
   const [q, setQ] = useState("");
   const [category, setCategory] = useState("");
+  // Debounce the free-text query so we don't fire a request per keystroke.
+  const debouncedQ = useDebounce(q);
 
   const { data: categories } = useQuery({
     queryKey: ["categories"],
@@ -18,10 +21,10 @@ export default function ProductsPage() {
   });
 
   const { data: products, isFetching } = useQuery({
-    queryKey: ["products", q, category],
+    queryKey: ["products", debouncedQ, category],
     queryFn: () => {
       const params = new URLSearchParams();
-      if (q) params.set("q", q);
+      if (debouncedQ) params.set("q", debouncedQ);
       if (category) params.set("category", category);
       return apiGet<ProductWithSupplier[]>(`/api/products?${params}`);
     },

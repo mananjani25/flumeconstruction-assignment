@@ -4,18 +4,21 @@ import Link from "next/link";
 import { useState } from "react";
 import { useQuery, useMutation, useQueryClient } from "@tanstack/react-query";
 import { apiGet, apiPost } from "@/lib/client";
+import { useDebounce } from "@/lib/useDebounce";
 import type { SupplierWithCount } from "@/lib/types";
 import { Button, EmptyState, Input, Label } from "@/components/ui";
 
 export default function SuppliersPage() {
   const [q, setQ] = useState("");
   const [showForm, setShowForm] = useState(false);
+  // Debounce the search so typing doesn't fire a request per keystroke.
+  const debouncedQ = useDebounce(q);
 
   const { data: suppliers, isLoading } = useQuery({
-    queryKey: ["suppliers", q],
+    queryKey: ["suppliers", debouncedQ],
     queryFn: () =>
       apiGet<SupplierWithCount[]>(
-        `/api/suppliers${q ? `?q=${encodeURIComponent(q)}` : ""}`
+        `/api/suppliers${debouncedQ ? `?q=${encodeURIComponent(debouncedQ)}` : ""}`
       ),
   });
 

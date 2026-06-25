@@ -5,6 +5,7 @@ import { useParams } from "next/navigation";
 import { useState } from "react";
 import { useQuery, useMutation, useQueryClient } from "@tanstack/react-query";
 import { apiDelete, apiGet, apiPost } from "@/lib/client";
+import { useDebounce } from "@/lib/useDebounce";
 import type { ProductWithSupplier, SpecItemDetail } from "@/lib/types";
 import { formatLeadTime, formatMoney } from "@/lib/format";
 import { Badge, Button, EmptyState, ErrorText, Input } from "@/components/ui";
@@ -177,12 +178,14 @@ function ProductSearch({ spec }: { spec: SpecItemDetail }) {
   const qc = useQueryClient();
   const [q, setQ] = useState(spec.name);
   const [category, setCategory] = useState(spec.category);
+  // Debounce the free-text query so we don't fire a request per keystroke.
+  const debouncedQ = useDebounce(q);
 
   const { data: products, isFetching } = useQuery({
-    queryKey: ["productSearch", q, category],
+    queryKey: ["productSearch", debouncedQ, category],
     queryFn: () => {
       const params = new URLSearchParams();
-      if (q) params.set("q", q);
+      if (debouncedQ) params.set("q", debouncedQ);
       if (category) params.set("category", category);
       return apiGet<ProductWithSupplier[]>(`/api/products?${params}`);
     },
