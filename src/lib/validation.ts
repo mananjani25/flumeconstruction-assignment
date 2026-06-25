@@ -4,6 +4,17 @@ import { PROJECT_STATUSES } from "./format";
 // Request body schemas. Kept in one place so routes and the client can share
 // the same shape and error messages.
 
+export const signupSchema = z.object({
+  name: z.string().trim().min(1, "Name is required"),
+  email: z.string().trim().toLowerCase().email("Must be a valid email"),
+  password: z.string().min(8, "Password must be at least 8 characters"),
+});
+
+export const loginSchema = z.object({
+  email: z.string().trim().toLowerCase().email("Must be a valid email"),
+  password: z.string().min(1, "Password is required"),
+});
+
 export const supplierCreateSchema = z.object({
   name: z.string().trim().min(1, "Name is required"),
   country: z.string().trim().min(1, "Country is required"),
@@ -48,6 +59,8 @@ export const sourcingOptionCreateSchema = z.object({
   leadTimeDays: z.coerce.number().int().min(0).optional(),
 });
 
+export type SignupInput = z.infer<typeof signupSchema>;
+export type LoginInput = z.infer<typeof loginSchema>;
 export type SupplierCreateInput = z.infer<typeof supplierCreateSchema>;
 export type ProductCreateInput = z.infer<typeof productCreateSchema>;
 export type ProjectCreateInput = z.infer<typeof projectCreateSchema>;

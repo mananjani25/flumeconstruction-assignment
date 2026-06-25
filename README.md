@@ -115,6 +115,15 @@ npm run setup
 npm run dev                 # http://localhost:3000
 ```
 
+The app requires sign-in. The seed creates a demo account:
+
+```
+Email:    demo@litesourcing.dev
+Password: password123
+```
+
+You can also create a new account from the **Create account** page.
+
 That's it — one app, one command to run. The `setup` script runs
 `prisma migrate deploy && prisma generate && npm run db:seed`. To wipe and
 re-seed at any time: `npm run db:reset` then `npm run db:seed`.
@@ -173,7 +182,16 @@ sourcing view). The project summary (total cost, supplier count, longest lead
 time) is derived on the client from the same pure function the backend uses, so
 there's a single source of truth for the rollup logic.
 
-**Tradeoffs given 3 days** — SQLite over Postgres; no auth/multi-tenancy; the
+**Auth** — Session-based login backed by a `User`/`Session` table (see
+`schema.prisma`). Passwords are hashed with scrypt (Node built-in — no extra
+dependency); login mints a random token stored in an httpOnly cookie and a
+revocable `Session` row. A `proxy.ts` (Next 16 edge proxy/middleware) gates
+pages (redirect to `/login`) and data APIs (401 JSON) on cookie presence;
+`lib/auth.ts#requireUser` re-validates the session (expiry/revocation) inside
+every data route handler. Single-tenant for now — all users share one dataset.
+
+**Tradeoffs given 3 days** — SQLite over Postgres; single-tenant (login, but no
+per-user data isolation or roles); the
 catalog search is a simple `contains` match rather than fuzzy/full-text; no
 automated test suite (domain logic in `lib/projects.ts` is structured to be the
 first thing I'd unit-test). Mutations invalidate React Query caches rather than
@@ -189,6 +207,7 @@ doing optimistic updates.
   of a quoted price on an option (currently defaults to catalog price).
 - **Currency handling** — normalize to a base currency for cross-supplier
   comparison instead of comparing raw amounts.
-- **Auth & audit** — users, roles, and a history of who selected which option.
+- **Auth & audit** — login exists; next would be roles/permissions, per-user or
+  per-team data isolation, and a history of who selected which option.
 - **Polish** — optimistic updates, toasts, pagination, and empty/error states
   for slow networks.

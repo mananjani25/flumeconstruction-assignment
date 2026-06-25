@@ -1,5 +1,6 @@
 import { prisma } from "@/lib/prisma";
 import { ApiError, handle, ok, parseBodyDetailed } from "@/lib/http";
+import { requireUser } from "@/lib/auth";
 import { sourcingOptionCreateSchema } from "@/lib/validation";
 
 // POST /api/spec-items/:id/options -> attach a supplier product as a sourcing
@@ -10,6 +11,7 @@ export async function POST(
   { params }: { params: Promise<{ id: string }> }
 ) {
   return handle(async () => {
+    await requireUser();
     const { id } = await params;
     const parsed = await parseBodyDetailed(req, sourcingOptionCreateSchema);
     if (!parsed.ok) return parsed.response;

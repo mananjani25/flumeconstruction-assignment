@@ -1,5 +1,6 @@
 import { prisma } from "@/lib/prisma";
 import { ApiError, handle, ok } from "@/lib/http";
+import { requireUser } from "@/lib/auth";
 
 // POST /api/options/:id/select -> mark this option as the winner for its spec
 // item, clearing any previously selected sibling. Atomic so a spec item never
@@ -9,6 +10,7 @@ export async function POST(
   { params }: { params: Promise<{ id: string }> }
 ) {
   return handle(async () => {
+    await requireUser();
     const { id } = await params;
     const option = await prisma.sourcingOption.findUnique({ where: { id } });
     if (!option) throw new ApiError("Sourcing option not found", 404);
@@ -33,6 +35,7 @@ export async function DELETE(
   { params }: { params: Promise<{ id: string }> }
 ) {
   return handle(async () => {
+    await requireUser();
     const { id } = await params;
     await prisma.sourcingOption.update({
       where: { id },

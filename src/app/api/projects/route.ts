@@ -1,10 +1,12 @@
 import { prisma } from "@/lib/prisma";
 import { handle, ok, parseBodyDetailed } from "@/lib/http";
+import { requireUser } from "@/lib/auth";
 import { projectCreateSchema } from "@/lib/validation";
 
 // GET /api/projects -> list projects with spec item counts
 export async function GET() {
   return handle(async () => {
+    await requireUser();
     const projects = await prisma.project.findMany({
       orderBy: { createdAt: "desc" },
       include: { _count: { select: { specItems: true } } },
@@ -16,6 +18,7 @@ export async function GET() {
 // POST /api/projects -> create a project (starts in Draft)
 export async function POST(req: Request) {
   return handle(async () => {
+    await requireUser();
     const parsed = await parseBodyDetailed(req, projectCreateSchema);
     if (!parsed.ok) return parsed.response;
     const project = await prisma.project.create({ data: parsed.data });

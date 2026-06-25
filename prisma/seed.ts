@@ -1,8 +1,19 @@
 import "dotenv/config";
 import { readFileSync } from "node:fs";
 import { join } from "node:path";
+import { randomBytes, scryptSync } from "node:crypto";
 import { PrismaClient } from "../src/generated/prisma/client";
 import { PrismaBetterSqlite3 } from "@prisma/adapter-better-sqlite3";
+
+// Mirror of src/lib/auth.hashPassword. Inlined here so the seed script doesn't
+// import the request-scoped auth module (which pulls in next/headers).
+function hashPassword(password: string): string {
+  const salt = randomBytes(16).toString("hex");
+  const hash = scryptSync(password, salt, 64).toString("hex");
+  return `${salt}:${hash}`;
+}
+
+const DEMO_USER = { email: "demo@litesourcing.dev", password: "password123" };
 
 const adapter = new PrismaBetterSqlite3({
   url: process.env.DATABASE_URL ?? "file:./dev.db",
@@ -56,8 +67,23 @@ async function main() {
     productCount += s.products.length;
   }
 
+  // Seed a demo login (idempotent). Reset the password on every seed so the
+  // documented credentials always work.
+  await prisma.user.upsert({
+    where: { email: DEMO_USER.email },
+    update: { passwordHash: hashPassword(DEMO_USER.password) },
+    create: {
+      email: DEMO_USER.email,
+      name: "Demo Buyer",
+      passwordHash: hashPassword(DEMO_USER.password),
+    },
+  });
+
   console.log(
     `Seeded ${suppliers.length} suppliers and ${productCount} products.`
+  );
+  console.log(
+    `Demo login: ${DEMO_USER.email} / ${DEMO_USER.password}`
   );
 }
 

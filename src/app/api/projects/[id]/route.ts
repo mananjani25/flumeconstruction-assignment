@@ -1,5 +1,6 @@
 import { prisma } from "@/lib/prisma";
 import { ApiError, handle, ok, parseBodyDetailed } from "@/lib/http";
+import { requireUser } from "@/lib/auth";
 import { projectStatusSchema } from "@/lib/validation";
 import { validateStatusTransition } from "@/lib/projects";
 import type { ProjectStatus } from "@/lib/format";
@@ -10,6 +11,7 @@ export async function GET(
   { params }: { params: Promise<{ id: string }> }
 ) {
   return handle(async () => {
+    await requireUser();
     const { id } = await params;
     const project = await prisma.project.findUnique({
       where: { id },
@@ -33,6 +35,7 @@ export async function PATCH(
   { params }: { params: Promise<{ id: string }> }
 ) {
   return handle(async () => {
+    await requireUser();
     const { id } = await params;
     const parsed = await parseBodyDetailed(req, projectStatusSchema);
     if (!parsed.ok) return parsed.response;
@@ -64,6 +67,7 @@ export async function DELETE(
   { params }: { params: Promise<{ id: string }> }
 ) {
   return handle(async () => {
+    await requireUser();
     const { id } = await params;
     await prisma.project.delete({ where: { id } });
     return ok({ deleted: true });

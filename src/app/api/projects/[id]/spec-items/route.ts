@@ -1,5 +1,6 @@
 import { prisma } from "@/lib/prisma";
 import { ApiError, handle, ok, parseBodyDetailed } from "@/lib/http";
+import { requireUser } from "@/lib/auth";
 import { specItemCreateSchema } from "@/lib/validation";
 
 // POST /api/projects/:id/spec-items -> add a spec item to a project
@@ -8,6 +9,7 @@ export async function POST(
   { params }: { params: Promise<{ id: string }> }
 ) {
   return handle(async () => {
+    await requireUser();
     const { id } = await params;
     const project = await prisma.project.findUnique({ where: { id } });
     if (!project) throw new ApiError("Project not found", 404);

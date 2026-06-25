@@ -1,5 +1,6 @@
 import { prisma } from "@/lib/prisma";
 import { ApiError, handle, ok } from "@/lib/http";
+import { requireUser } from "@/lib/auth";
 
 // GET /api/spec-items/:id -> spec item with its sourcing options (for compare)
 export async function GET(
@@ -7,6 +8,7 @@ export async function GET(
   { params }: { params: Promise<{ id: string }> }
 ) {
   return handle(async () => {
+    await requireUser();
     const { id } = await params;
     const specItem = await prisma.specItem.findUnique({
       where: { id },
@@ -29,6 +31,7 @@ export async function DELETE(
   { params }: { params: Promise<{ id: string }> }
 ) {
   return handle(async () => {
+    await requireUser();
     const { id } = await params;
     await prisma.specItem.delete({ where: { id } });
     return ok({ deleted: true });

@@ -1,5 +1,7 @@
 // Lightweight client-facing types mirroring API responses.
 
+export type AuthUser = { id: string; email: string; name: string };
+
 export type Supplier = {
   id: string;
   name: string;

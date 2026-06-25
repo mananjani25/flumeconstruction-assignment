@@ -11,6 +11,28 @@ datasource db {
   provider = "sqlite"
 }
 
+// Procurement team members who can sign in. Auth is session-based: each login
+// mints a Session row whose random token is stored in an httpOnly cookie.
+model User {
+  id           String    @id @default(cuid())
+  email        String    @unique
+  name         String
+  passwordHash String
+  sessions     Session[]
+  createdAt    DateTime  @default(now())
+}
+
+model Session {
+  id        String   @id @default(cuid())
+  token     String   @unique
+  user      User     @relation(fields: [userId], references: [id], onDelete: Cascade)
+  userId    String
+  expiresAt DateTime
+  createdAt DateTime @default(now())
+
+  @@index([userId])
+}
+
 model Supplier {
   id        String    @id @default(cuid())
   name      String
